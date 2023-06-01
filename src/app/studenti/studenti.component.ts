@@ -19,6 +19,13 @@ export class StudentiComponent implements OnInit {
     this.scuServ.getData().subscribe((data: any) => { this.data = data })
   }
 
+  eliminaStudente(id: number) {
+    this.scuServ.deleteStudente(id).subscribe((response) => {
+      console.log("Studente eliminato con successo:", response);
+    });
+  }
+
+
 }
 
 

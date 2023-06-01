@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 @Injectable({
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 export class ScuolaService {
 
   constructor(private http: HttpClient) { }
+
 
   listaDati
 
@@ -20,6 +21,11 @@ export class ScuolaService {
     return this.http.post<any>(this.url, studente);
   }
 
+  deleteStudente(id: number): Observable<any> {
+    const deleteUrl = `${this.url}/${id}`;
+    return this.http.delete<any>(deleteUrl);
+
+  }
 
 }
 
