@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ScuolaService } from 'src/app/scuola.service';
+import { Studente } from 'src/app/studente';
 
 
 @Component({
@@ -18,8 +19,7 @@ export class AddStudenteComponent {
   nomeSTU: string;
 
   addStudent() {
-    const nuovoStudente = { id: this.idSTU, nome: this.nomeSTU };
-    this.scuServ.addStudente(nuovoStudente).subscribe((response) => {
-    });
+    const nuovoStudente = new Studente(this.idSTU, this.nomeSTU);
+    this.scuServ.addStudente(nuovoStudente).subscribe();
   }
 }
